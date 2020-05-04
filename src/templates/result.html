@@ -1,0 +1,30 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<title>Image Classifier</title>
+<h1 class="image">Result</h1>
+	{% if accuracy %}
+		<p class="image">Accuracy of {{predicted_class}}: {{ accuracy }}%</p>
+	{% endif %}
+</p>
+<style type="text/css">
+
+body {
+	background-color: #242424;
+	color: white;
+	font-family: sans-serif;
+	text-align: center;
+}
+
+
+h1 {
+	padding-top: 50px;
+	font-size: 50px;
+}
+
+p {
+	font-size: 25px;
+}
+
+</style>
+</html>
