@@ -1,0 +1,118 @@
+<!doctype html>
+<title>Image Classifier</title>
+<h1>Image Classifier Demo</h1>
+<p>This demo uses a Convolutional neural network model, CIFAR10 dataset and pytorch to identify objects from an image. <br>Try any image from the classes below and see how accurate the model is.</p>
+<p>upload the following classes to see the result: plane, car, bird, cat,
+           deer, dog, frog, horse, ship, truck</p>
+<p>Upload your images to have them classified by machine!</p>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+	<div class="div1">
+		<input type="file" name="file" id="file"  hidden>
+		<label for="file" id="selector">Choose an image</label>
+    	<p class="btn"/>
+    </div>
+	<div>
+		<button type="submit" value="Submit">Submit</button>
+	</div>
+
+	</p>
+</form>
+
+<style type="text/css">
+
+	
+* {
+	margin: 0;
+	box-sizing: border-box;
+	transition: all 0.35s linear;
+	font-family: sans-serif;
+}
+
+body {
+	background-color: #242424;
+	vertical-align: middle;
+	text-align: center;
+}
+
+p {
+	padding-top: 30px;
+	color: white;
+	font-size: 21px;
+
+}
+
+h1 {
+	color: white;
+
+}
+
+div {
+
+	text-align: center;
+}
+
+button {
+	text-align: center;
+	padding: 16px 48px;
+	border: 3px solid #ffc872;
+	border-radius: 48px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+
+label {
+	padding: 16px 48px;
+	border: 3px solid #ffc872;
+	border-radius: 48px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: bold;
+	color: #ffc872;
+}	
+
+label:hover {
+	transform: scale(1.04);
+}
+
+label.active {
+	background-color: #ffc872;
+	color: #242424;
+}
+
+label span {
+	font-weight: normal;
+}
+
+</style>
+
+</style>
+
+<script type="text/javascript">
+    
+var loader = function(e) {
+	let file = e.target.files;
+    let show = "<span>Selected image: </span>" + file[0].name;
+    let output = document.getElementById("selector");
+    output.innerHTML = show;
+    output.classList.add("active");
+}
+
+let fileInput = document.getElementById("file");
+fileInput.addEventListener("change", loader);
+
+ </script>
+
+</body>
+</html>
