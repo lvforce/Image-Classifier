@@ -43,8 +43,3 @@ def train():
 
   return net
 
-
-
-
-def train():
-	pass
