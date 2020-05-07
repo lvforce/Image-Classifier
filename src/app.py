@@ -10,10 +10,10 @@ from PIL import Image
 
 
 app = Flask(__name__)
-UPLOAD_FOLDER = '/home/roman/projects/Image-Classifier/uploads'
+#UPLOAD_FOLDER = '/home/roman/projects/Image-Classifier/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg', 'webp'])
 app.secret_key = "secret key"
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+#app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 net = train()
 
 imsize = 256
@@ -47,8 +47,9 @@ def upload_file():
 			return request.redirect(request.url)
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
-			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-			image = Image.open(UPLOAD_FOLDER+'/'+str(file.filename))
+			print(file.filename)
+			#file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			image = Image.open(file)
 			image = loader(image).float()
 			image = torch.autograd.Variable(image, requires_grad=True)
 			image = image.unsqueeze(0)

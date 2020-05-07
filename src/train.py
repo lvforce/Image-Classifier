@@ -8,7 +8,7 @@ optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
 def train():
   net.train()
-  for epoch in range(1):
+  for epoch in range(7):
 
     running_loss = 0.0
     for i, date in enumerate(trainloader, 0):
