@@ -7,8 +7,6 @@ import os
 from PIL import Image
 
 
-
-
 app = Flask(__name__)
 #UPLOAD_FOLDER = '/home/roman/projects/Image-Classifier/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg', 'webp'])
@@ -61,5 +59,5 @@ def upload_file():
 
 
 
-
-app.run(debug = True)
+if __name__ == "__main__":
+	app.run(debug = True, port=os.getenv('PORT', 5000))
